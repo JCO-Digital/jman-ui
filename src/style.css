@@ -1,0 +1,140 @@
+:root {
+	/* Base / Layout */
+	--bg-body: #f3f4f6;
+	--bg-card: #ffffff;
+	--border-color: #e5e7eb;
+	--border-input: #d1d5db;
+
+	/* Typography */
+	--text-main: #1f2937;
+	--text-muted: #6b7280;
+	--text-placeholder: #9ca3af;
+	--text-heading: #111827;
+
+	/* Primary Brand */
+	--primary: #4f46e5;
+	--primary-hover: #4338ca;
+	--primary-text: #ffffff;
+
+	/* Table / Interactive */
+	--bg-table-header: #f9fafb;
+	--text-table-header: #374151;
+	--bg-hover: #f3f4f6;
+	--bg-disabled: #f3f4f6;
+	--text-disabled: #9ca3af;
+
+	/* Error Banner */
+	--error-bg: #fee2e2;
+	--error-border: #ef4444;
+	--error-text: #991b1b;
+
+	/* Status Badges */
+	--badge-default-bg: #f3f4f6;
+	--badge-default-text: #374151;
+	--badge-active-bg: #d1fae5;
+	--badge-active-text: #065f46;
+	--badge-inactive-bg: #fee2e2;
+	--badge-inactive-text: #991b1b;
+	--badge-must-use-bg: #e0e7ff;
+	--badge-must-use-text: #3730a3;
+	--badge-drop-in-bg: #fef3c7;
+	--badge-drop-in-text: #92400e;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Base / Layout */
+		--bg-body: #111827; /* Tailwind gray-900 */
+		--bg-card: #1f2937; /* Tailwind gray-800 */
+		--border-color: #374151; /* Tailwind gray-700 */
+		--border-input: #4b5563; /* Tailwind gray-600 */
+
+		/* Typography */
+		--text-main: #f9fafb; /* Tailwind gray-50 */
+		--text-muted: #9ca3af; /* Tailwind gray-400 */
+		--text-placeholder: #6b7280; /* Tailwind gray-500 */
+		--text-heading: #f3f4f6; /* Tailwind gray-100 */
+
+		/* Primary Brand */
+		--primary: #6366f1; /* Tailwind indigo-500 */
+		--primary-hover: #818cf8; /* Tailwind indigo-400 */
+		--primary-text: #ffffff;
+
+		/* Table / Interactive */
+		--bg-table-header: #111827;
+		--text-table-header: #e5e7eb;
+		--bg-hover: #374151;
+		--bg-disabled: #374151;
+		--text-disabled: #6b7280;
+
+		/* Error Banner */
+		--error-bg: #7f1d1d; /* Tailwind red-900 */
+		--error-border: #dc2626; /* Tailwind red-600 */
+		--error-text: #fca5a5; /* Tailwind red-300 */
+
+		/* Status Badges */
+		--badge-default-bg: #374151;
+		--badge-default-text: #e5e7eb;
+		--badge-active-bg: #064e3b; /* Tailwind emerald-900 */
+		--badge-active-text: #34d399; /* Tailwind emerald-400 */
+		--badge-inactive-bg: #7f1d1d; /* Tailwind red-900 */
+		--badge-inactive-text: #f87171; /* Tailwind red-400 */
+		--badge-must-use-bg: #312e81; /* Tailwind indigo-900 */
+		--badge-must-use-text: #818cf8; /* Tailwind indigo-400 */
+		--badge-drop-in-bg: #78350f; /* Tailwind amber-900 */
+		--badge-drop-in-text: #fbbf24; /* Tailwind amber-400 */
+	}
+}
+
+/* Apply Variables Globally */
+html,
+body {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+
+	/* Apply base themes (important needed to override App.vue defaults if unedited) */
+	background-color: var(--bg-body) !important;
+	color: var(--text-main) !important;
+}
+
+/* Ensure common elements respect the new color variables out-of-the-box */
+input,
+select {
+	background-color: var(--bg-card);
+	color: var(--text-main);
+	border-color: var(--border-input);
+}
+
+input::placeholder {
+	color: var(--text-placeholder);
+}
+
+/* Global loading spinner */
+.spinner {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border: 3px solid rgba(156, 163, 175, 0.2); /* Neutral muted ring */
+	border-radius: 50%;
+	border-left-color: var(--primary);
+	animation: spin 1s linear infinite;
+}
+
+.spinner-small {
+	width: 16px;
+	height: 16px;
+	border-width: 2px;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
