@@ -20,6 +20,6 @@ jobs:
         with:
           key: ${{ secrets.SSH_KEY }}
           name: id_ed25519
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          known_hosts: ${{ vars.KNOWN_HOSTS }}
       - name: Deploy Files
         run: rsync -rlci --delete dist/* hostmaster@jman.jcore.fi:/var/www/jman/
